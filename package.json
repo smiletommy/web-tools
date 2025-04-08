@@ -8,13 +8,14 @@
     "tools-api"
   ],
   "scripts": {
-    "dev": "concurrently \"npm run dev:web\" \"npm run dev:api\"",
-    "dev:web": "cd tools-web && npm run dev",
-    "dev:api": "cd tools-api && npm run dev",
-    "build": "npm run build:web && npm run build:api",
-    "build:web": "cd tools-web && npm run build",
-    "build:api": "cd tools-api && npm run build",
-    "start": "cd tools-api && npm start"
+    "dev": "npm-run-all --parallel start:api start:web",
+    "start:all": "npm-run-all --parallel start:api start:web",
+    "start:web": "npm run dev --workspace=tools-web",
+    "start:api": "npm run dev --workspace=tools-api",
+    "build:all": "npm-run-all build:web build:api",
+    "build:web": "npm run build --workspace=tools-web",
+    "build:api": "npm run build --workspace=tools-api",
+    "start": "npm start --workspace=tools-api"
   },
   "keywords": [
     "tools",
@@ -26,6 +27,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "npm-run-all": "^4.1.5"
   }
 } 
