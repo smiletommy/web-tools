@@ -1,0 +1,31 @@
+{
+  "name": "tools-project",
+  "version": "1.0.0",
+  "description": "Full-stack tools application with React frontend and Node.js backend",
+  "private": true,
+  "workspaces": [
+    "tools-web",
+    "tools-api"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:web\" \"npm run dev:api\"",
+    "dev:web": "cd tools-web && npm run dev",
+    "dev:api": "cd tools-api && npm run dev",
+    "build": "npm run build:web && npm run build:api",
+    "build:web": "cd tools-web && npm run build",
+    "build:api": "cd tools-api && npm run build",
+    "start": "cd tools-api && npm start"
+  },
+  "keywords": [
+    "tools",
+    "react",
+    "nodejs",
+    "typescript",
+    "fullstack"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+} 
