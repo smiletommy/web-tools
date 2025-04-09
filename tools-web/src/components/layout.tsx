@@ -66,6 +66,12 @@ const Layout = ({ children }: LayoutProps) => {
               </Button>
               <Button 
                 color="primary"
+                onClick={() => navigate('/vocal-remover')}
+              >
+                Vocal Remover
+              </Button>
+              <Button 
+                color="primary"
                 variant="contained"
                 onClick={() => navigate('/')}
               >

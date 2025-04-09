@@ -3,6 +3,8 @@ import {
   Image as ImageIcon,
   Code as CodeIcon,
   DataObject as DataIcon,
+  MusicNote as MusicIcon,
+  AudioFile as AudioIcon,
 } from '@mui/icons-material';
 import { SvgIconProps } from '@mui/material';
 import React from 'react';
@@ -22,6 +24,8 @@ const iconMap: Record<string, React.ComponentType<SvgIconProps>> = {
   'image-tools': ImageIcon,
   'code-tools': CodeIcon,
   'data-tools': DataIcon,
+  'vocal-remover': MusicIcon,
+  'audio-tools': AudioIcon,
 };
 
 // Local fallback tools data
@@ -61,6 +65,24 @@ const fallbackTools: Tool[] = [
     Icon: DataIcon,
     category: 'data',
     tags: ['data', 'processing', 'analysis'],
+  },
+  {
+    id: 'audio-tools',
+    title: 'Audio Tools',
+    description: 'Audio processing and manipulation tools',
+    path: '/audio-tools',
+    Icon: AudioIcon,
+    category: 'audio',
+    tags: ['audio', 'processing', 'music'],
+  },
+  {
+    id: 'vocal-remover',
+    title: 'Vocal Remover',
+    description: 'Remove vocals from music tracks to create instrumental versions',
+    path: '/vocal-remover',
+    Icon: MusicIcon,
+    category: 'audio',
+    tags: ['music', 'audio', 'vocals', 'instrumental', 'karaoke'],
   },
 ];
 

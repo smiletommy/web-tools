@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import rateLimit from 'express-rate-limit';
 import dotenv from 'dotenv';
+import audioRoutes from './routes/audioRoutes';
 
 // Load environment variables
 dotenv.config();
@@ -27,6 +28,9 @@ const limiter = rateLimit({
   max: 100 // limit each IP to 100 requests per windowMs
 });
 app.use(limiter);
+
+// API routes
+app.use('/api/audio', audioRoutes);
 
 // Basic route
 app.get('/', (req, res) => {
@@ -64,6 +68,20 @@ app.get('/api/tools', (req, res) => {
         description: 'Data processing and analysis tools',
         category: 'data',
         tags: ['data', 'processing', 'analysis'],
+      },
+      {
+        id: 'vocal-remover',
+        title: 'Vocal Remover',
+        description: 'Remove vocals from music tracks to create instrumental versions',
+        category: 'audio',
+        tags: ['music', 'audio', 'vocals', 'instrumental', 'karaoke'],
+      },
+      {
+        id: 'audio-tools',
+        title: 'Audio Tools',
+        description: 'Audio processing and manipulation tools',
+        category: 'audio',
+        tags: ['audio', 'processing', 'music'],
       }
     ]
   });
